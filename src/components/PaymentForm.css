@@ -1,0 +1,47 @@
+.payment-form {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 24px;
+  max-width: 400px;
+  margin: 0 auto 24px auto;
+}
+.payment-form-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #4f46e5;
+}
+.payment-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border 0.2s;
+}
+.payment-form input:focus {
+  border-color: #4f46e5;
+}
+.payment-form-btn {
+  width: 100%;
+  background: #22c55e;
+  color: #fff;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.payment-form-btn:hover {
+  background: #16a34a;
+}
+.payment-form-error {
+  color: #dc2626;
+  margin-bottom: 10px;
+  text-align: center;
+} 

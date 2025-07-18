@@ -1,0 +1,32 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+  padding: 32px 0;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4f46e5;
+}
+.dashboard-logout {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dashboard-logout:hover {
+  background: #b91c1c;
+} 
