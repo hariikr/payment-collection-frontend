@@ -19,7 +19,7 @@ export default function Login() {
         account_number: accountNumber,
         password,
       });
-      login(res.data.token);
+      login(res.data.token, res.data.refreshToken, res.data.user);
       navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
@@ -29,6 +29,7 @@ export default function Login() {
   return (
     <div className="login-bg">
       <form onSubmit={handleSubmit} className="login-form">
+        <div className="login-logo">💸</div>
         <h2>Login</h2>
         {error && <div className="login-error">{error}</div>}
         <div className="login-field">
