@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import api, { testApiConnection } from '../utils/api';
+import api from '../utils/api';
 import './Login.css';
 
 export default function Login() {
@@ -9,22 +9,8 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState('Checking connection...');
   const { login } = useAuth();
   const navigate = useNavigate();
-
-  // Test API connection on component mount
-  useEffect(() => {
-    const checkConnection = async () => {
-      try {
-        const result = await testApiConnection();
-        setConnectionStatus(result.message);
-      } catch (err) {
-        setConnectionStatus('Connection test failed');
-      }
-    };
-    checkConnection();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,14 +18,10 @@ export default function Login() {
     setIsLoading(true);
     
     try {
-      console.log('Attempting login with:', { account_number: accountNumber });
-      
       const res = await api.post('/auth/login', {
         account_number: accountNumber,
         password,
       });
-      
-      console.log('Login successful:', res.data);
       
       if (res.data.token && res.data.refreshToken && res.data.user) {
         login(res.data.token, res.data.refreshToken, res.data.user);
@@ -48,7 +30,6 @@ export default function Login() {
         setError('Invalid response from server - missing tokens');
       }
     } catch (err) {
-      console.error('Login error:', err);
       
       if (err.response) {
         // Server responded with error
@@ -94,14 +75,6 @@ export default function Login() {
         <button type="submit" className="login-btn" disabled={isLoading}>
           {isLoading ? 'Logging in...' : 'Login'}
         </button>
-        
-        {/* Debug info for testing */}
-        <div style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
-          <p><strong>Connection Status:</strong> {connectionStatus}</p>
-          <p><strong>Test Account:</strong></p>
-          <p>Account: 1234567890</p>
-          <p>Password: testpassword</p>
-        </div>
       </form>
     </div>
   );
