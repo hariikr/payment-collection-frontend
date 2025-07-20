@@ -169,9 +169,8 @@ npm run dev
 ## **Screenshots**
 
 ![Payment Collection App Screenshot](./src/assets/image.png)
-![Payment Collection App Screenshot](./src/assets/image1.png)
 
-*Payment Collection App - Modern UI with JWT Authentication and EMI Payment System*
+
 
 
 ## **Contact**
